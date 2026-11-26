@@ -1,0 +1,13 @@
+{
+  "name": "Al Toque Corrientes",
+  "short_name": "Al Toque",
+  "description": "Productos y servicios cerca tuyo, en Corrientes.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FF5A1F",
+  "lang": "es-AR",
+  "icons": [
+    { "src": "assets/icono-app.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

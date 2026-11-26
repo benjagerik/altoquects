@@ -1,0 +1,227 @@
+/* Al Toque Corrientes — estilos
+   Colores y tipografía fijos según el manual de marca. No cambiar los valores. */
+:root {
+  --navy: #0B1F3A;
+  --orange: #FF5A1F;
+  --white: #FFFFFF;
+  --muted: #5A6577;
+  --line: #C9D0DA;
+  --soft: #EEF1F5;
+  --green: #1E8E3E;
+  --font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--white); color: var(--navy); font-family: var(--font); }
+body { -webkit-text-size-adjust: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; color: inherit; }
+img, svg { max-width: 100%; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+/* Pantalla: columna de celular centrada, también se ve bien en compu */
+.screen {
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 20px max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Inicio */
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-name { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name span { font-size: 24px; font-weight: 800; }
+.brand-name small { font-size: 13px; font-weight: 500; letter-spacing: 3px; color: var(--muted); }
+.home h1 { margin: 8px 0 0; font-size: 30px; font-weight: 800; line-height: 1.15; text-wrap: balance; }
+
+.search {
+  display: flex; align-items: center; gap: 12px;
+  height: 56px; padding: 0 16px;
+  border: 2px solid var(--navy); border-radius: 16px; background: var(--white);
+}
+.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 17px; }
+.search input::placeholder { color: var(--muted); }
+.search:focus-within { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+.choices { flex: 1; display: flex; flex-direction: column; gap: 16px; min-height: 340px; }
+.choice {
+  flex: 1; padding: 22px; border-radius: 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.choice strong { display: block; font-size: 32px; font-weight: 800; line-height: 1.1; }
+.choice span { display: block; margin-top: 6px; font-size: 16px; font-weight: 500; }
+.choice-prod { background: var(--orange); color: var(--navy); }
+.choice-serv { background: var(--navy); color: var(--white); }
+
+.btn-outline {
+  height: 56px; border: 2px solid var(--navy); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; font-weight: 800;
+}
+
+/* Encabezado de las listas */
+.top { display: flex; align-items: center; gap: 6px; margin-left: -10px; }
+.back { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+.top h1 { margin: 0; font-size: 28px; font-weight: 800; }
+.top img { margin-left: auto; }
+
+.list .search { height: 52px; }
+.list .search input { font-size: 16px; }
+.filters { display: flex; gap: 12px; }
+.filters select {
+  flex: 1; min-width: 0; height: 44px; padding: 0 12px;
+  border: 1.5px solid var(--line); border-radius: 12px; background: var(--white);
+  font-size: 15px; font-weight: 500;
+}
+
+/* Tarjetas de productos */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 14px; }
+.card { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.photo {
+  position: relative; height: 150px; border-radius: 18px; background: var(--soft);
+  display: flex; align-items: center; justify-content: center; color: var(--muted);
+}
+.photo .badge { position: absolute; left: 8px; top: 8px; }
+.price { margin-top: 2px; font-size: 20px; font-weight: 800; }
+.title { font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta { display: flex; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); }
+.meta span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta svg { flex: none; }
+.btn {
+  margin-top: 4px; height: 44px; border: 0; border-radius: 12px; cursor: pointer;
+  background: var(--orange); color: var(--navy); font-size: 15px; font-weight: 800;
+}
+
+/* Tarjetas de servicios */
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.svc { border: 1.5px solid var(--line); border-radius: 20px; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.svc-head { display: flex; gap: 14px; }
+.svc-photo { flex: none; width: 84px; height: 84px; border-radius: 14px; background: var(--soft); display: flex; align-items: center; justify-content: center; color: var(--muted); }
+.svc-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.svc-info h2 { margin: 0; font-size: 19px; font-weight: 800; line-height: 1.15; }
+.svc-info p { margin: 0; font-size: 15px; font-weight: 500; }
+.svc-info .meta { align-items: flex-start; line-height: 1.3; }
+.svc-info .meta span { white-space: normal; }
+.svc-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.avail { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 500; }
+.avail i { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+.avail.later i { background: var(--muted); }
+.rate { font-size: 15px; font-weight: 800; }
+.btn-navy { height: 48px; border: 0; border-radius: 14px; cursor: pointer; background: var(--navy); color: var(--white); font-size: 16px; font-weight: 800; }
+
+/* Insignia Fundador (pequeña) */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px; align-self: flex-start;
+  background: var(--navy); color: var(--white); border-radius: 999px;
+  padding: 3px 9px 3px 7px; font-size: 11px; font-weight: 800;
+}
+
+.empty { grid-column: 1 / -1; padding: 32px 8px; text-align: center; color: var(--muted); font-size: 16px; }
+.note { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* Aviso corto */
+#toast {
+  position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom)); transform: translateX(-50%);
+  max-width: calc(100% - 32px); padding: 12px 18px; border-radius: 14px;
+  background: var(--navy); color: var(--white); font-size: 15px; font-weight: 500; text-align: center; z-index: 10;
+}
+#toast[hidden] { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .choice, .btn, .btn-navy, .btn-outline { transition: transform .12s ease; }
+  .choice:active, .btn:active, .btn-navy:active, .btn-outline:active { transform: scale(.98); }
+}
+
+/* ---------- Publicar ---------- */
+.photo img, .svc-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.link-small { align-self: center; padding: 10px; font-size: 15px; font-weight: 500; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+
+.lead { margin: 4px 0 0; font-size: 18px; line-height: 1.4; }
+.type-pick { display: flex; flex-direction: column; gap: 14px; }
+.type-pick .choice { min-height: 150px; flex: none; }
+.type-pick .choice strong { font-size: 28px; }
+
+.form { display: flex; flex-direction: column; gap: 20px; }
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; border: 0; padding: 0; margin: 0; }
+.lbl { font-size: 16px; font-weight: 800; padding: 0; }
+.lbl em { font-style: normal; font-weight: 500; color: var(--muted); }
+.input {
+  width: 100%; height: 52px; padding: 0 14px;
+  border: 2px solid var(--navy); border-radius: 14px; background: var(--white);
+  font-size: 17px;
+}
+textarea.input { height: auto; min-height: 96px; padding: 12px 14px; resize: vertical; line-height: 1.4; }
+select.input { padding-right: 8px; }
+.input[aria-invalid="true"] { border-color: #B3261E; }
+.err { margin: 0; font-size: 14px; font-weight: 500; color: #B3261E; }
+.hint { margin: 0; font-size: 13px; color: var(--muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.chip span {
+  display: flex; align-items: center; min-height: 44px; padding: 0 16px;
+  border: 1.5px solid var(--line); border-radius: 999px; background: var(--white);
+  font-size: 15px; font-weight: 500;
+}
+.chip input:checked + span { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.chip input:focus-visible + span { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+.photos { display: flex; flex-wrap: wrap; gap: 10px; }
+.thumb { position: relative; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--soft); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb button {
+  position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; border: 0; border-radius: 50%;
+  background: var(--navy); color: var(--white); font-size: 16px; line-height: 1; cursor: pointer;
+}
+.add-photo {
+  width: 84px; height: 84px; border: 2px dashed var(--navy); border-radius: 14px; background: var(--white);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  font-size: 12px; font-weight: 800; cursor: pointer; color: var(--navy);
+}
+.add-photo[hidden] { display: none; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.more { border: 1.5px solid var(--line); border-radius: 16px; padding: 4px 14px; }
+.more summary { min-height: 48px; display: flex; align-items: center; font-size: 16px; font-weight: 800; cursor: pointer; }
+.more[open] { padding-bottom: 16px; }
+.more[open] .form { margin-top: 8px; }
+
+.btn-pub { height: 56px; border: 0; border-radius: 16px; background: var(--orange); color: var(--navy); font-size: 18px; font-weight: 800; cursor: pointer; }
+
+.done { align-items: stretch; text-align: center; padding-top: 48px; }
+.done .tick { align-self: center; width: 84px; height: 84px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; }
+.done h1 { margin: 8px 0 0; font-size: 30px; font-weight: 800; line-height: 1.15; text-wrap: balance; }
+
+/* Mis publicaciones */
+.mine { border: 1.5px solid var(--line); border-radius: 20px; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.mine-head { display: flex; gap: 12px; }
+.mine-head .svc-photo { width: 72px; height: 72px; }
+.mine-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.mine-info strong { font-size: 17px; font-weight: 800; line-height: 1.2; overflow-wrap: anywhere; }
+.mine-info span { font-size: 14px; color: var(--muted); }
+.pill { align-self: flex-start; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; background: var(--soft); color: var(--navy); }
+.pill.on { background: var(--green); color: var(--white); }
+.mine-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.mine-actions button {
+  flex: 1 1 auto; min-height: 44px; padding: 0 12px; border: 1.5px solid var(--navy); border-radius: 12px;
+  background: var(--white); font-size: 14px; font-weight: 800; cursor: pointer;
+}
+.mine-actions .danger { border-color: var(--line); color: var(--muted); }
+.mine-actions .danger.armed { border-color: #B3261E; color: #B3261E; }
+
+/* ---------- Ingreso y perfil ---------- */
+.btn-google {
+  height: 56px; border: 2px solid var(--navy); border-radius: 16px; background: var(--white); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 17px; font-weight: 800; color: var(--navy);
+}
+.btn-google .g { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; }
+.sep { display: flex; align-items: center; gap: 12px; margin: 4px 0; color: var(--muted); font-size: 14px; }
+.sep::before, .sep::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.links-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 18px; }
+.who { margin: 0; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+.btn-text { height: 48px; border: 0; background: transparent; color: var(--muted); font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
