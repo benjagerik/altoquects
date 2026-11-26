@@ -40,9 +40,17 @@ window.Auth = (function () {
       "auth/too-many-requests": "Hiciste muchos intentos. Esperá unos minutos e intentá de nuevo.",
       "auth/invalid-action-code": "El enlace ya se usó o venció. Pedí uno nuevo.",
       "auth/expired-action-code": "El enlace venció. Pedí uno nuevo.",
-      "auth/user-disabled": "Esta cuenta está deshabilitada."
+      "auth/user-disabled": "Esta cuenta está deshabilitada.",
+      "auth/unauthorized-continue-uri": "Esta dirección no está autorizada en Firebase. Agregala en Authentication > Configuración > Dominios autorizados.",
+      "auth/invalid-continue-uri": "La dirección de la página no es válida para el enlace. Abrila desde http(s), no desde un archivo.",
+      "auth/configuration-not-found": "Falta iniciar Authentication en Firebase: entrá a Authentication y tocá Comenzar.",
+      "auth/admin-restricted-operation": "Este método de ingreso está restringido en Firebase. Revisá Authentication > Método de acceso.",
+      "auth/quota-exceeded": "Se alcanzó el límite diario de emails de Firebase. Probá más tarde.",
+      "auth/invalid-api-key": "La clave de la configuración de Firebase no es válida. Revisá firebase-config.js.",
+      "auth/api-key-not-valid.-please-pass-a-valid-api-key.": "La clave de la configuración de Firebase no es válida. Revisá firebase-config.js."
     };
-    return m[c] || "No pudimos completar el ingreso. Intentá de nuevo.";
+    if (e) { try { console.error("Auth:", e); } catch (x) {} }
+    return m[c] || ("No pudimos completar el ingreso. Intentá de nuevo." + (c ? " (código: " + c + ")" : ""));
   };
 
   function loadFirebase() {
